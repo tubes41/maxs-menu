@@ -8,11 +8,12 @@ SITE_NAME="${SITE_NAME:-Max\'s Menu}"
 TIMEZONE="${TIMEZONE:-Australia/Perth}"
 ADMIN_USERNAME="${ADMIN_USERNAME:-admin}"
 ADMIN_PASSWORD="${ADMIN_PASSWORD:-password123}"
+MENU_PORT="${MENU_PORT:-8080}"
 
 chown -R 1000:1000 /data
 
 if [ ! -f ".menu.env" ]; then
-    echo "MENU_PORT=8080" > .menu.env
+    echo "MENU_PORT=$MENU_PORT" > .menu.env
     chmod 600 .menu.env
 fi
 
