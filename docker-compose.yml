@@ -1,0 +1,19 @@
+version: '3.8'
+
+services:
+  maxs-menu:
+    # Pulls and builds directly from the GitHub repository fork
+    build: .
+    container_name: maxs-menu-app
+    network_mode: host
+    environment:
+      - SITE_NAME=${SITE_NAME}
+      - TIMEZONE=${TIMEZONE}
+      - ADMIN_USERNAME=${ADMIN_USERNAME}
+      - ADMIN_PASSWORD=${ADMIN_PASSWORD}
+      - MENU_PORT=${MENU_PORT}
+    volumes:
+      - data:/data
+    restart: unless-stopped
+volumes:
+  data:
